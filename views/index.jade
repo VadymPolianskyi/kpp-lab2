@@ -1,34 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Tasks
 
+  ul(id="tasks")
 
+  input(id="new_task", type="text", name="task_name")
+  button(onclick="addTask()") Create
 
-
-  button(class="btn btn-primary", data-toggle="modal", data-target="#myModal")
-
-  div(class="modal fade", tabindex="-1", role="dialog", id="myModal")
-    div(class="modal-dialog", role="document")
-      div.modal-content
-        div.modal-header
-          h4.modal-title Add book
-        div.modal-body
-          form(method='POST', action='/add', autocomplete="off", class="form-horizontal", role="form")
-            div.form-group
-              label(for='title') Title:
-              input#title.form-control(type='text', placeholder='' name='title')
-            div.form-group
-              label(for='author') Author:
-              input#author.form-control(type='email', placeholder='name@email.com' name='author')
-            div.form-author
-              label(for='publishing_house') Publishing house:
-              input#publishing_house.form-control(type='text', placeholder='title of book' name='publishing_house')
-            div.form-group
-              label(for='pw') Password:
-              input#pw.form-control(type='password' name='password')
-            div.form-group
-              label(for='pw2') Confirm Password:
-              input#pw2.form-control(type='password' name='confirmPassword')
-            button.btn.btn-primary(type='submit') Sign up
+  script
